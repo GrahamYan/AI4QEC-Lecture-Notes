@@ -1,0 +1,50 @@
+[
+  {
+    "objectID": "week1.html#lecture-video-slides",
+    "href": "week1.html#lecture-video-slides",
+    "title": "Week 1: The Full-Stack QEC Blueprint",
+    "section": "📺 Lecture Video & Slides",
+    "text": "📺 Lecture Video & Slides\nBefore diving into the core mathematical text, watch this 45-minute introductory lecture. We break down the absolute bottlenecks of classical decoding algorithms and map out the entire ecosystem of AI-driven fault tolerance.",
+    "crumbs": [
+      "Lessons",
+      "Course Material",
+      "Week 1: The Full-Stack Blueprint"
+    ]
+  },
+  {
+    "objectID": "week1.html#the-big-picture-why-ai-qec",
+    "href": "week1.html#the-big-picture-why-ai-qec",
+    "title": "Week 1: The Full-Stack QEC Blueprint",
+    "section": "1. The Big Picture: Why AI + QEC?",
+    "text": "1. The Big Picture: Why AI + QEC?\nQuantum Error Correction (QEC) is fundamentally a race against time against environmental decoherence. While traditional Fault-Tolerant Quantum Computing (FTQC) architectures are built on elegant algebraic foundations, practical hardware implementation suffers from a critical “information collapse” across the multi-layer hardware-software stack.\n\nThe Full-Stack Dilemma: The physical layer constantly generates noisy, time-varying, and highly correlated error data. The circuit layer propagates and distorts these errors. Finally, the decoder is forced to process massive, sparse spatiotemporal syndrome graphs within a tight microsecond window to apply corrections.\n\nTraditional hard-coded algorithms (such as Minimum Weight Perfect Matching, or MWPM) suffer from severe latency bottlenecks as the code distance \\(d\\) scales. Conversely, the forward pass of a deep neural network offers a natural \\(O(1)\\) or highly parallelizable low-time complexity. Our mission is not to replace physics with AI, but to deploy AI as a highly parallelized, hardware-efficient solver to smash the decoding latency wall.",
+    "crumbs": [
+      "Lessons",
+      "Course Material",
+      "Week 1: The Full-Stack Blueprint"
+    ]
+  },
+  {
+    "objectID": "week1.html#the-5-layer-qec-architecture",
+    "href": "week1.html#the-5-layer-qec-architecture",
+    "title": "Week 1: The Full-Stack QEC Blueprint",
+    "section": "2. The 5-Layer QEC Architecture",
+    "text": "2. The 5-Layer QEC Architecture\nOver the next 12 weeks, we will dissect the five pillars of full-stack QEC. Every layer presents a bottleneck where traditional mathematical approaches hit a wall, defining the exact ecological niche for AI intervention:\n\n\n\n\n\n\n\n\n\nLayer\nCore QEC Domain\nTraditional Bottleneck\nAI Opportunity\n\n\n\n\n1. Code Design\nCSS, Surface, and qLDPC algebraic constructions\nMassive sparse matrix search space; human intuition limits scaling\nGenerative AI & MCTS to auto-search for high-threshold novel codes\n\n\n2. Circuit Level\nSyndrome extraction circuit synthesis & CNOT scheduling\nHook error propagation; deep circuits that amplify ambient noise\nReinforcement Learning to optimize circuit topologies for minimal depth\n\n\n3. Noise Modeling\nDEM (Detector Error Model) abstraction\nTextbook I.I.D. Pauli channels decouple from dirty hardware realities\nData-driven models (VAEs/RNNs) to learn time-varying drifts directly from calibration data\n\n\n4. Decoding\nReal-time syndrome tracking under strict latency constraints\nThe trade-off between accuracy and speed; inability to match microsecond cycle times\nModel quantization (BNNs) and Edge AI (FPGA/ASIC) for ultra-low latency inference\n\n\n5. Logical Gates\nLattice Surgery, Magic State Distillation, and Fault-Tolerance\nComplex, dynamic spatiotemporal boundaries make syndrome tracking highly irregular\nGraph Neural Networks (GNNs) to handle dynamic boundary stitching and real-time routing",
+    "crumbs": [
+      "Lessons",
+      "Course Material",
+      "Week 1: The Full-Stack Blueprint"
+    ]
+  },
+  {
+    "objectID": "week1.html#hands-on-preview-generating-your-first-dem",
+    "href": "week1.html#hands-on-preview-generating-your-first-dem",
+    "title": "Week 1: The Full-Stack QEC Blueprint",
+    "section": "3. 🛠️ Hands-on Preview: Generating Your First DEM",
+    "text": "3. 🛠️ Hands-on Preview: Generating Your First DEM\nTo build immediate engineering intuition, let’s look at how we can use Google’s Stim library to automatically extract a Detector Error Model (DEM) from a concrete quantum circuit. The DEM serves as the mathematical bridge connecting raw hardware physics to our decoders.\nToggle the code block below to inspect the initialization:\n#| code-fold: show #| code-summary: “Click to expand/collapse the core Stim script” import stim",
+    "crumbs": [
+      "Lessons",
+      "Course Material",
+      "Week 1: The Full-Stack Blueprint"
+    ]
+  }
+]

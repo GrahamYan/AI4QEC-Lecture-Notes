@@ -1,22 +1,77 @@
 ---
-title: "week one"
-format: html
+title: "Week 1: The Full-Stack QEC Blueprint"
+subtitle: "Bridging the Gap between Quantum Physics and AI-Driven Fault Tolerance"
+author: "Graham Yan"
+date: "2026-07-14"
+execute:
+  execute: false
 ---
 
-lets see what will happen with this page
-is this purely realtime?
-let's check if this is auto saved
-now what 
+::: {.hero-banner}
+<!-- Fast.ai style badge navigation for interactive sandboxes -->
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
+[![View Source on GitHub](https://img.shields.io/badge/GitHub-View_Source-blue?logo=github)](https://github.com/GrahamYan/AI4QEC-Lecture-Notes)
+[![Download Slides](https://img.shields.io/badge/NTU_Slides-Download_PDF-orange)](https://github.com/GrahamYan/AI4QEC-Lecture-Notes)
+:::
 
-still no updating as far as I can tell
+---
 
-so right now this is updating 
+## 📺 Lecture Video & Slides
 
-that's cool
+*Before diving into the core mathematical text, watch this 45-minute introductory lecture. We break down the absolute bottlenecks of classical decoding algorithms and map out the entire ecosystem of AI-driven fault tolerance.*
 
-how about now, is it watching this 
+::: {.video-container}
+{{< video https://www.youtube.com/watch?v=dQw4w9WgXcQ width="100%" height="450" >}}
+:::
 
-working ?
+---
 
-oh yes 
-this time this one is definitly working 
+## 1. The Big Picture: Why AI + QEC?
+
+Quantum Error Correction (QEC) is fundamentally a race against time against environmental decoherence. While traditional Fault-Tolerant Quantum Computing (FTQC) architectures are built on elegant algebraic foundations, practical hardware implementation suffers from a critical "information collapse" across the multi-layer hardware-software stack.
+
+> **The Full-Stack Dilemma:** 
+> The physical layer constantly generates noisy, time-varying, and highly correlated error data. The circuit layer propagates and distorts these errors. Finally, the decoder is forced to process massive, sparse spatiotemporal syndrome graphs within a tight microsecond window to apply corrections.
+
+Traditional hard-coded algorithms (such as Minimum Weight Perfect Matching, or MWPM) suffer from severe latency bottlenecks as the code distance $d$ scales. Conversely, **the forward pass of a deep neural network offers a natural $O(1)$ or highly parallelizable low-time complexity.** Our mission is not to replace physics with AI, but to **deploy AI as a highly parallelized, hardware-efficient solver to smash the decoding latency wall.**
+
+---
+
+## 2. The 5-Layer QEC Architecture
+
+Over the next 12 weeks, we will dissect the five pillars of full-stack QEC. Every layer presents a bottleneck where traditional mathematical approaches hit a wall, defining the exact ecological niche for AI intervention:
+
+| Layer | Core QEC Domain | Traditional Bottleneck | AI Opportunity |
+| :--- | :--- | :--- | :--- |
+| **1. Code Design** | CSS, Surface, and qLDPC algebraic constructions | Massive sparse matrix search space; human intuition limits scaling | Generative AI & MCTS to auto-search for high-threshold novel codes |
+| **2. Circuit Level** | Syndrome extraction circuit synthesis & CNOT scheduling | Hook error propagation; deep circuits that amplify ambient noise | Reinforcement Learning to optimize circuit topologies for minimal depth |
+| **3. Noise Modeling** | DEM (Detector Error Model) abstraction | Textbook I.I.D. Pauli channels decouple from dirty hardware realities | Data-driven models (VAEs/RNNs) to learn time-varying drifts directly from calibration data |
+| **4. Decoding** | Real-time syndrome tracking under strict latency constraints | The trade-off between accuracy and speed; inability to match microsecond cycle times | Model quantization (BNNs) and Edge AI (FPGA/ASIC) for ultra-low latency inference |
+| **5. Logical Gates** | Lattice Surgery, Magic State Distillation, and Fault-Tolerance | Complex, dynamic spatiotemporal boundaries make syndrome tracking highly irregular | Graph Neural Networks (GNNs) to handle dynamic boundary stitching and real-time routing |
+
+---
+
+## 3. 🛠️ Hands-on Preview: Generating Your First DEM
+
+To build immediate engineering intuition, let's look at how we can use Google's `Stim` library to automatically extract a **Detector Error Model (DEM)** from a concrete quantum circuit. The DEM serves as the mathematical bridge connecting raw hardware physics to our decoders.
+
+Toggle the code block below to inspect the initialization:
+
+```{python}
+#| code-fold: show
+#| code-summary: "Click to expand/collapse the core Stim script"
+import stim
+
+# 1. Generate a rotated surface code circuit (d=3, rounds=3)
+circuit = stim.Circuit.generated(
+    "surface_code:rotated_memory_x",
+    distance=3,
+    rounds=3,
+    after_clifford_depolarization=0.001 # Inject 0.1% Pauli depolarization noise
+)
+
+# 2. Automatically derive the underlying Detector Error Model (DEM)
+error_model = circuit.detector_error_model()
+
+# 3. Print the first 5 lines of the derived error model operators
+print("\n".join(str(error_model).splitlines()[:5]))
