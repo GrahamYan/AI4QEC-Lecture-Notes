@@ -1,0 +1,22 @@
+---
+title: "week one"
+format: html
+---
+
+lets see what will happen with this page
+is this purely realtime?
+let's check if this is auto saved
+now what 
+
+still no updating as far as I can tell
+
+so right now this is updating 
+
+that's cool
+
+how about now, is it watching this 
+
+working ?
+
+oh yes 
+this time this one is definitly working 
