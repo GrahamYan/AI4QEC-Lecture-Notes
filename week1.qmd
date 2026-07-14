@@ -1,5 +1,5 @@
 ---
-title: "Week 1: The Full-Stack QEC Blueprint"
+title: "AI + QEC Blueprint"
 subtitle: "Bridging the Gap between Quantum Physics and AI-Driven Fault Tolerance"
 author: "Graham Yan"
 date: "2026-07-14"

@@ -2,37 +2,50 @@ project:
   type: website # 声明这是一个现代化课程网站
 
 website:
-  title: "AI + QEC"
+  title: "Practical Quantum Error Correction with Artificial Intelligence"
   description: "Practical Quantum Error Correction with AI"
   
-  # 1. 顶部导航栏（对应 fast.ai 顶部的 Lessons, Dataset, About）
+  # 1. 顶部导航栏
   navbar:
     background: primary
     search: true
-    left:
-      - text: "Lessons"
-        href: index.qmd
-      - text: "GitHub"
-        href: https://github.com/GrahamYan/AI4QEC-Lecture-Notes
-      - text: "NTU Lab516"
-        href: about.qmd
 
-  # 2. 左侧侧边栏（对应 fast.ai 左侧的 Lesson 1, Lesson 2...）
+  # 2. 左侧侧边栏（已完美修复缩进与关键字）
   sidebar:
     style: "floating"
     contents:
+      - text: "QEC + AI"
+        href: week1.qmd
       - section: "Course Material"
         contents:
-          - text: "Week 1: The Full-Stack Blueprint"
-            file: week1.qmd
-          - text: "Week 2: Topological QEC"
-            file: week2.qmd
-          - text: "Week 3: Code Design & Metrics"
-            file: week3.qmd
+          - text: "1: Topological quantum computing"
+            href: week1.qmd
+          - text: "2: Code design"
+            href: week2.qmd
+          - text: "3: Physical hardware"
+            href: week3.qmd
+          - text: "4: Syndrome extraction"
+            href: week3.qmd
+          - text: "5: Circuit-level"
+            href: week3.qmd
+          - text: "6: Detector error models"
+            href: week3.qmd
+          - text: "7: Decoding foundation"
+            href: week3.qmd
+          - text: "8: Neural decoders"
+            href: week3.qmd
+          - text: "9: Transversal gates"
+            href: week3.qmd
+          - text: "10: Code deformation"
+            href: week3.qmd
+          - text: "11: Reconfigurable system"
+            href: week3.qmd
+          - text: "12: LLM and QEC"
+            href: week3.qmd
 
 format:
   html:
-    theme: [cosmo, custom.scss] # 使用 cosmo 基础皮肤，外加你的自定义细节
+    theme: [cosmo, custom.scss] # 使用 cosmo 基础皮肤
     toc: true                   # 开启右侧的章节内小目录
-    code-copy: true             # 允许读者一键复制你的 Stim/PyTorch 代码
-    code-fold: show             # 默认显示代码，但允许读者点击折叠
+    code-copy: true             # 允许读者一键复制代码
+    code-fold: show             # 默认显示代码，支持点击折叠
